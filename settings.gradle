@@ -1,0 +1,1 @@
+include ':javashoplib', ':app', ':PushSDK', ':apt', ':apt-lib'
