@@ -1,6 +1,5 @@
 package com.nat.android.javashoplib.utils;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 
 /**
@@ -14,6 +13,7 @@ public interface UmengControl {
     }
 
     interface UmengConfig{
+        UmengControl.UmengConfig setTitle(String text);
         UmengControl.UmengConfig setText(String text);
         UmengControl.UmengConfig setImage(Bitmap bitmap);
         void go();

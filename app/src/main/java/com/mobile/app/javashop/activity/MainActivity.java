@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.Menu;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
@@ -13,14 +12,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.jph.takephoto.model.TImage;
-import com.nat.android.javashoplib.utils.UmengShare;
 import com.netease.gentiesdk.core.callback.DocProfileResp;
 import com.netease.gentiesdk.views.DocCommentsFragment;
 import com.umeng.socialize.UMShareAPI;
 import com.yms.aptlib.router.Extra;
 import com.yms.aptlib.router.Router;
-import java.util.ArrayList;
 import com.mobile.app.javashop.Config;
 import com.mobile.app.javashop.R;
 import com.mobile.app.javashop.application.App;
@@ -30,9 +26,7 @@ import com.mobile.app.javashop.databinding.ActivityMainBinding;
 import com.mobile.app.javashop.model.BolgModel;
 import com.mobile.app.javashop.presenter.MainPresenter;
 import com.mobile.app.javashop.utils.StutasBarUtils;
-import com.nat.android.javashoplib.aop.isLogin;
 import com.nat.android.javashoplib.photoutils.RxGetPhotoUtils;
-import com.nat.android.javashoplib.rxbus.RxBus;
 import com.nat.android.javashoplib.utils.ScreenUtils;
 import com.nat.android.javashoplib.utils.ShareUtils;
 import com.nat.android.javashoplib.utils.Utils;
@@ -80,7 +74,6 @@ public class MainActivity extends BaseGalleryActivity<MainPresenter,ActivityMain
         return true;
     }
 
-    @isLogin
     protected void BindEvent() {
         mViewBinding.fab.setOnClickListener(
                 v -> RxGetPhotoUtils.init(this)

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -18,6 +19,17 @@ import rx.Observable;
  */
 
 public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengConfig{
+
+    public static void initWechat(String id,String scre){
+        PlatformConfig.setWeixin(id,scre);
+    }
+    public static void initQQ(String id,String scre){
+        PlatformConfig.setQQZone(id,scre);
+    }
+    public static void initWeiBo(String key,String setret,String url){
+        PlatformConfig.setSinaWeibo(key,setret,url);
+    }
+
     private ShareAction shareAction;
 
     private static  UmengShare umeng;
@@ -73,8 +85,14 @@ public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengC
             }
         });
     }
-    public UmengControl.UmengConfig setText(String text){
+    @Override
+    public UmengControl.UmengConfig setTitle(String text) {
         web.setTitle(text);
+        return umeng;
+    }
+
+    public UmengControl.UmengConfig setText(String text){
+        web.setDescription(text);
         return umeng;
     }
 
